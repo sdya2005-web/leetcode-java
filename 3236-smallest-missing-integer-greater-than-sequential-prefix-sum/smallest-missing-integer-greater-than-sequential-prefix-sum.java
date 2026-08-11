@@ -1,10 +1,15 @@
-class Solution {
+
+
+        class Solution {
     public int missingInteger(int[] nums) {
-         int n = nums.length;
-        Set<Integer> numSet = new HashSet<>(n);
+        int n = nums.length;
+
+        HashSet<Integer> set = new HashSet<>();
+
         for (int num : nums) {
-            numSet.add(num);
+            set.add(num);
         }
+
         int total = nums[0];
 
         for (int i = 1; i < n; i++) {
@@ -15,8 +20,8 @@ class Solution {
             }
         }
 
-        while (numSet.contains(total)) {
-            total += 1;
+        while (set.contains(total)) {
+            total++;
         }
 
         return total;
